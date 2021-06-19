@@ -27,7 +27,7 @@ curl -X POST http://.../command/ptzf.cgi --user user:password -H Content-Type=ap
 It looks like the `AbsoutlePanTilt` key took a value of two bytes for each Pan and Tilt option. That is a total of 4 bytes in hex. I was still unclear on what the last
 digit did. The scale for the camera also seems odd. The 0000 point for Pan is center between either end of its rotation, with Tilt 
 0000 being horizon level. See below for my crude attempts at drawing anything useful.
-![Camera Movement Range](https://github.com/Tylermarques/Sony-SNC-RZ25N/images/Camera_movement.png)
+![Camera Movement Range](https://github.com/Tylermarques/Sony-SNC-RZ25N/blob/master/images/Camera_movement.png)
 
 ## TODOs
 - What does the last digit on AbsolutePanTilt zoom do?
