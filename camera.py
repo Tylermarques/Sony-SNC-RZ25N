@@ -9,6 +9,10 @@ from requests.auth import HTTPBasicAuth
 
 
 class Camera:
+    # TODO Add Class documentation
+    # TODO Add ability to view the Camera's feed.
+    #   I have this ability in a different repository, but it makes more sense to have it as actually part of the class.
+    #   The issue is that I don't want to add OpenCV to this class, so I will need to figure out a way around that.
 
     def __init__(self, ip, user, password, threaded=True):
         self.ip = ip
