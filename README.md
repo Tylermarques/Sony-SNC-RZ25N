@@ -1,17 +1,6 @@
- # Resident and Guest detection
+# SONY SNC-RZ25N
 
-This is one I have been dreaming about for a while, mostly because I think it's a bit dystopian but also still pretty cool. 
-I would love to have a program that detects when someone comes to my house, and can alert me as to who that is. My end goal 
-is that this system will just be one of many that will feed a bigger system for predictions, but this is a good place to start.
-
-## SONY SNC-RZ25N
-
-So I've had two of these cameras sitting in my basement for a while. I chose this model because I already
-owned two of them; they are far from the best choice, but they are 'free' :shrug:. These particular cameras are PTZ (Pan-Tilt-Zoom) cameras,
-meaning they have motors that allow you to position the camera remotely. Pretty cool in and of itself, but more cool when you 
-throw in some facial recognition and give the software the ability to move itself. 
-
-### Setting up communication
+## Setting up communication
 
 First thing on the list of TODOs was figure out how the hell I get an image out of it. The camera has 4 interfaces on the back of it.
 VCC and Ground are pretty self-explanatory, the camera appears to run on some form of electricity. There is also ethernet and what looks like 
@@ -26,7 +15,7 @@ devices to communicate. I tried first on my Mac, only to be met with disappointm
 on Chrome. Deciding to turn my back on modern technology, I fired up my older Windows machine and launched IE. After reconnecting and reconfiguring the ethernet interface,
 I could load the interface without issue. I finally could set the IP to be in the right subnet and properly communicate with the camera.
 
-### Controlling the cameras
+## Controlling the cameras
 
 In the web interface, there was some basic configuration options. What I was mostly interested in was the Live View which
 allowed you to view the camera's feed and direct the camera to reposition. I opened wireshark and captured the packets being sent to the camera
