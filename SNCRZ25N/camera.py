@@ -1,11 +1,12 @@
 """
 Includes a class for initializing communication with the SNCRZ25N. Allows you to view and move the SNCRZ25N.
 """
-
+import base64
 from threading import Thread
 import json
 import requests
 from requests.auth import HTTPBasicAuth
+from urllib.request import Request, urlopen
 
 
 class Camera:
@@ -16,9 +17,12 @@ class Camera:
 
     def __init__(self, ip, user, password, threaded=True):
         self.ip = ip
+        self.user = user
+        self.password = password
         self.auth = HTTPBasicAuth(user, password)
         self.threaded = threaded
         self.command_url = f"http://{ip}/command/ptzf.cgi"
+        self.video_url = f"http://{ip}/image"
         self.current_pan: int = 0  # 0000/ffff is the starting preset
         self.current_tilt: int = 65535  # ffff is the starting preset
         self.current_zoom: int = 0  # 0000 is the starting preset
@@ -114,10 +118,18 @@ class Camera:
             if resp.status_code != 204:
                 raise ConnectionError
 
+    def stream_image(self):
+        request = Request(self.video_url)
+        auth_string = "%s:%s" % (self.user, self.password)
+        b64auth = base64.standard_b64encode(auth_string.encode('ascii'))
+        request.add_header("Authorization", f"Basic {b64auth.decode('ascii')}")
+        return urlopen(request)
+
+
 
 class CameraNonThreaded(Camera):
     def __init__(self, ip, user, password):
-        super().__init__(ip, user, password)
+        super().__init__(ip, user, password, threaded=False)
 
 
 class CameraThreaded(Camera):
