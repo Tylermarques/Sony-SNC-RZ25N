@@ -1,5 +1,5 @@
 """
-Includes a class for initializing communication with the camera. Allows you to view and move the camera.
+Includes a class for initializing communication with the SNCRZ25N. Allows you to view and move the SNCRZ25N.
 """
 
 from threading import Thread
@@ -106,7 +106,7 @@ class Camera:
             "DayNightMode": "manual",
             "DayNight": "on" if mode else "off"
         }
-        url = f"http://{self.ip}/command/camera.cgi"
+        url = f"http://{self.ip}/command/SNCRZ25N.cgi"
         if self.threaded:
             Thread(target=requests.post, args=(url,), kwargs={'auth': self.auth, 'data': data}).start()
         else:
@@ -127,7 +127,7 @@ class CameraThreaded(Camera):
 
 def typing_manual_control(camera: CameraThreaded):
     """
-    Allows you to manually type in the hex of the position that the camera should move to.
+    Allows you to manually type in the hex of the position that the SNCRZ25N should move to.
     :param camera:
     :return:
     """
@@ -140,7 +140,7 @@ def typing_manual_control(camera: CameraThreaded):
 
 
 if __name__ == '__main__':
-    with open('config.json', 'r') as config_file:
+    with open('../config.json', 'r') as config_file:
         config = json.load(config_file)
 
     cam = CameraThreaded(config['ip'], config['user'], config['password'])

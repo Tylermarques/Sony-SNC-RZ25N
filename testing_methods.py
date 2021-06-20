@@ -28,7 +28,7 @@ def changeDHCP(auth, value: bool):
     """
     DO NOT USE
 
-    While there is apparently a way to allow the camera to utilize DHCP, when I tried this the camera became completely
+    While there is apparently a way to allow the SNCRZ25N to utilize DHCP, when I tried this the SNCRZ25N became completely
     unreachable. It is easier to just set a static IP.
     :param auth:
     :param value:

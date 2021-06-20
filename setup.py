@@ -14,7 +14,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["reader"],
+    packages=["SNCRZ25N"],
     include_package_data=True,
     install_requires=["requests"],
     entry_points={

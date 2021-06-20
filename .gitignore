@@ -2,7 +2,7 @@
 venv/
 # Decompiled Java includes the decompiled java code from the Sony Camera that can be downloaded if you visit the Camera's webpage using IE
 # I have not committed it as is it not my code and likely under Sony CP. I wanted to look at the code to see if there were any methods I might be interested in re-making myself
-# Legacy web interface includes the html and js files from the IE compatible web interface which the camera serves on port 80.
+# Legacy web interface includes the html and js files from the IE compatible web interface which the SNCRZ25N serves on port 80.
 Decompiled Java/
 Legacy Web Interface/
 packet_capture/
