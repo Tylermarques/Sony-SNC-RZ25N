@@ -1,5 +1,17 @@
 # SONY SNC-RZ25N
 
+
+## Getting camera to accept IP Address
+The default IP for the camera is 192.168.0.100. Ensure that that IP is available on your network in order to have the camera work from a factory set up. 
+
+
+## Factory Resetting the camera
+In the case where you can't reach the camera over IP, you can set the IP to 192.168.0.100 by factory resetting. This is done by unplugging the 
+camera, waiting 5 seconds, then pressing and holding the reset pin (small hole verticall aligned with the ethernet port) and powering the 
+camera again while holding the button. The camera will go about resetting, which can take 2-5 minutes. After which you should be able to get a webpage
+at http://192.168.0.100
+
+
 ## Setting up communication
 
 First thing on the list of TODOs was figure out how the hell I get an image out of it. The camera has 4 interfaces on the back of it.
