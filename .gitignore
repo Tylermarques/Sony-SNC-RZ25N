@@ -9,3 +9,5 @@ packet_capture/
 # haar_cascades for OpenCV are CP by Intel and can be downloaded else where.
 haar_cascades/
 config.json
+*.egg-info/
+**/__pycache__/
