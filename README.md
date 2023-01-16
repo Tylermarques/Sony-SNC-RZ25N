@@ -43,4 +43,7 @@ digit did. The scale for the camera also seems odd. The 0000 point for Pan is ce
 
 ## TODOs
 - What does the last digit on AbsolutePanTilt zoom do?
+- Create an interface like the old Java one that allows you to choose the absolute position of the camera from a grid. 
+- Download and decompile the java code to see what end points are shown. Can be retrieved from http://{cam_ip}/program/SonySncRz25View.jar
+- 
 

@@ -84,7 +84,6 @@ class Camera:
         data = {
             "AbsolutePanTilt": f"{'{:04x}'.format(pan_position)},{'{:04x}'.format(tilt_position)},{'{0}'.format(extra)}"
         }
-        print(f"AbsolutePanTilt: {data['AbsolutePanTilt']}")
         if self.threaded:
             Thread(target=requests.post, args=(self.command_url,), kwargs={'auth': self.auth, 'data': data}).start()
         else:
@@ -96,7 +95,6 @@ class Camera:
         data = {
             "AbsolutePanTilt": f"{hex_str},{'{:x}'.format(extra)}"
         }
-        print(data)
         if self.threaded:
             Thread(target=requests.post, args=(self.command_url,), kwargs={'auth': self.auth, 'data': data}).start()
         else:
@@ -262,6 +260,7 @@ class App(tk.Tk):
         ret, frame = self.cam.get_frame()
         if self.flipped:
             frame = cv2.flip(frame, 0)
+            frame = cv2.flip(frame, 1)
         if ret:
             self.photo = ImageTk.PhotoImage(image=Image.fromarray(frame))
         self.cam_label.configure(image=self.photo)
@@ -277,12 +276,13 @@ class App(tk.Tk):
         max_px_move = 5
         x_move = abs(self.drag_start[0] - event.x)
         y_move = abs(self.drag_start[1] - event.y)
-        # Translate from tk
+        # Translate from tkO
         relative_x = event.x - int(self.cam.width / 2)
         relative_y = event.y - int(self.cam.height / 2)
         if self.flipped:
             # relative_x = -relative_x
             relative_y = -relative_y
+            relative_x = -relative_x
         if not self.drag_start:
             return
         if x_move < max_px_move and y_move < max_px_move:
@@ -290,7 +290,7 @@ class App(tk.Tk):
             print(f"Translated ({relative_x}, {relative_y})")
             self.cam.area_zoom((relative_x, relative_y))
         else:
-            self.cam.area_zoom((event.x - int(self.cam.width / 2), event.y - int(self.cam.height / 2)), width=x_move, height=y_move)
+            self.cam.area_zoom((relative_x, relative_y), width=x_move, height=y_move)
 
 
 def test_basic_feed():

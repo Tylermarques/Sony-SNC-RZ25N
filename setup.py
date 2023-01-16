@@ -16,7 +16,7 @@ setup(
     ],
     packages=["SNCRZ25N"],
     include_package_data=True,
-    install_requires=["requests"],
+    install_requires=["requests", "numpy", "opencv-python", "Pillow"],
     entry_points={
         "console_scripts": [
             "realpython=reader.__main__:main",
